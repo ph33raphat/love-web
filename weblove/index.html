@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ถึงเธอ 💖</title>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      text-align: center;
+  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+  color: #333;
+    }
+
+    h1 {
+      margin-top: 100px;
+      font-size: 42px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 20px;
+      border: none;
+      border-radius: 15px;
+      background-color: red;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s;
+      position: relative;
+      z-index: 9999;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    /* ตำแหน่งปุ่ม */
+    .left-bottom {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+    }
+
+    .right-bottom {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+
+    .center-btn {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    #text, #text2 {
+      margin-top: 20px;
+      font-size: 28px;
+    }
+
+    .img-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    #loveImg {
+      width: 300px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 0, 100, 0.6);
+      opacity: 0;
+      transform: scale(0.5);
+      transition: all 0.8s ease;
+    }
+
+    #loveImg.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    #loveImg:hover {
+      transform: scale(1.08);
+    }
+
+    .heart {
+      position: fixed;
+      color: red;
+      animation: float 3s linear infinite;
+      pointer-events: none; /* 👈 สำคัญมาก */
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-800px); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>กดนี่สิที่รัก 💌</h1>
+
+  <button id="loveBtn" onclick="showLove()">กดเลย เบบบบบบ</button>
+
+  <div id="text"></div>
+  <div id="text2"></div>
+
+  <div class="img-container">
+    <img id="loveImg" src="img.jpg" alt="รูปแฟน">
+  </div>
+
+  <script>
+    let clickStep = 0;
+
+    function showLove() {
+      const btn = document.getElementById("loveBtn");
+
+      clickStep++;
+
+      // ครั้งที่ 1
+      if (clickStep === 1) {
+        document.getElementById("text").innerHTML = "ฮั่นแหน่ 😏";
+        document.getElementById("text2").innerHTML = "หาปุ่มให้เจออ";
+
+        btn.className = "left-bottom";
+        btn.innerHTML = "อยู่นี่";
+        return;
+      }
+
+      // ครั้งที่ 2
+      if (clickStep === 2) {
+        document.getElementById("text").innerHTML = "ฮุฮุ 😝";
+        document.getElementById("text2").innerHTML = "ยังมีอีกกก";
+
+        btn.className = "right-bottom";
+        btn.innerHTML = "5555";
+        return;
+      }
+
+      // ครั้งที่ 3
+      if (clickStep === 3) {
+        document.getElementById("text").innerHTML = "เก่งจัง เบเบ 😳";
+        document.getElementById("text2").innerHTML = "อ่ะๆ รอบนี้ของจริงแล้วนะ";
+
+        btn.className = "center-btn";
+        btn.innerHTML = "กดเลย 💖";
+        return;
+      }
+
+      // ครั้งที่ 4
+      document.getElementById("text").innerHTML = "เค้ารักเบเบมากๆที่สุดในโลกเลยน้าาาาา 💖";
+      document.getElementById("text2").innerHTML = "มั๊วะๆๆๆ 😘";
+
+      document.getElementById("loveImg").classList.add("show");
+
+      btn.classList.add("hide");
+
+      setInterval(createHeart, 200);
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "💖";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>
