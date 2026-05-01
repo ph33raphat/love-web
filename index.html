@@ -31,6 +31,10 @@
       margin-top: 20px;
       font-size: 28px;
     }
+    #text2 {
+      margin-top: 20px;
+      font-size: 28px;
+    }
 
     .heart {
       position: fixed;
@@ -46,13 +50,15 @@
 </head>
 <body>
 
-  <h1>กดนี่สิ 💌</h1>
-  <button onclick="showLove()">กดเลย</button>
+  <h1>กดนี่สิที่รัก 💌</h1>
+  <button onclick="showLove()">กดเลย เบบบบบบ</button>
   <div id="text"></div>
+  <div id="text2"></div>
 
   <script>
     function showLove() {
-      document.getElementById("text").innerHTML = "รักเธอที่สุดในโลกเลยนะ 💖";
+      document.getElementById("text").innerHTML = "เค้ารักเบเบมากๆที่สุดในโลกเลยน้าาาาา มั๊วะๆๆๆ 💖";
+      document.getElementById("text2").innerHTML = "เค้าทำแบบรีบๆ โทษที55555555 💖";
 
       setInterval(createHeart, 200);
     }
